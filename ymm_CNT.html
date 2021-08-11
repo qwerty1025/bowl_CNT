@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+ 
+    <title>Vue init</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>  
+  </head>
+
+  <body>
+
+      <div class="app20">
+        <select v-model="select">
+            <option disabled>請選擇</option>
+            <option v-for="item in dataArray" :value="item">{{item}}</option>
+        </select>
+      </div>
+
+
+      <div id="cart">
+        <ul v-for = "food in foods">
+          <li>
+            {{food.title}} {{food.price}}元 x
+            <input v-model="food.amount" size=1>
+            = {{food.price * food.amount}}
+           </li>
+        </ul>
+        共計 {{total}} 元
+      </div>
+      
+  </body>
+  <script>
+    var app20 = new Vue({
+        el:'.app20',
+        data:{
+            dataArray:['Leo','Perter','Harry'],
+						selected:''
+        }
+    });
+
+    var data =[{
+    title: "雞排",  price: 55,  amount:1
+  }, {
+    title: "薯條",  price: 40,  amount:1
+  }, {
+    title: "可樂",  price: 25,  amount:1
+  }];
+  var vm = new Vue({
+    el:"#cart",
+    data:{
+      foods: data
+    },
+    computed:{
+      total: function(){
+        var sum=0;
+        for(var i in this.foods){
+          sum+=this.foods[i].price * this.foods[i].amount;
+        }
+        return sum;
+      }
+    }
+  })
+</script>
+</html>
+
+
+

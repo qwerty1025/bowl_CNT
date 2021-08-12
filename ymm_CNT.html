@@ -38,11 +38,98 @@
               </ul>
 
               <br>
-              <div Class="text-2xl font-semibold inline-block py-1 px-4 uppercase
+              <div class = "grid grid-cols-3">
+              <div Class=" grid-rows-1 text-2xl font-semibold inline-block py-1 px-4 uppercase
                           rounded text-yellow-600 bg-yellow-200 uppercase last:mr-0 mr-1">
               共計 {{total}} 元 </div>
-            </div>
+
+              
+                <!-- <button class="" type="button" onclick="copyEvent('copy2')"></button>
+                <button type="button" ></button> -->
+        
+                <button class="bg-pink-500 hover:bg-pink-400 text-white 
+                               font-bold py-2 px-4 border-b-4 border-pink-700 
+                               hover:border-pink-500 rounded grid-rows-1 " 
+                        onclick="copyEvent('copy2')"
+                               >
+                               付費資訊
+                </button>
+        
+                <button class="bg-pink-500 hover:bg-pink-400 text-white 
+                               font-bold py-2 px-4 border-b-4 border-pink-700 
+                               hover:border-pink-500 rounded grid-rows-1 "
+                        onclick="copyEvent('copy3')"
+                               >
+                               收件資訊
+                </button>
         </div>
+            </div>
+            
+        </div>
+      </div>
+
+      <div>
+        
+
+        
+<div class = "flex flex-rows"> 
+
+        <textarea name="mytext"
+        rows="6"
+        cols="40"
+        id="copy2" 
+        required>
+        🌟提醒您，預約宅配收貨🌟
+        管理室代收記得放保冰袋喲
+
+        🌿 提醒環保 愛地球的你 🌿
+        我們期待您使用購物袋，取貨
+
+        💨 如果路途較遠 我們提供 💨 
+        加購 保冰包裝 20元  
+
+        預約自取，可搜尋
+        🌟五寮尖山羊乳🌟
+
+        或是直接點選導航連結：
+        https://maps.app.goo.gl/eZSyFe2B4jxyrQPz9
+        </textarea>
+
+
+        <textarea name="mytext"
+        rows="6"
+        cols="40"
+        id="copy3" 
+        required>
+        🌟費用的部分，可以：🌟 
+        ✨ 1 ) 現金碰面收。 
+        ✨ 2 ) 轉帳匯款 :
+             【永豐銀行】（807）鶯歌分行
+              帳號：14001800111461 
+              戶名：邱順群
+
+        ✨ 3 )轉帳匯款 :
+            【中華郵政】（700）- 三峽分局
+             帳號：03113250513672
+             戶名：邱順群 
+
+        ✨ 4）LinePay好友轉帳，可 加入lineID：qwerty1025 請小幫手阿順收
+        </textarea>
+
+        
+</div>
+        
+        
+        <script>
+            function copyEvent(id)
+            {
+                var str = document.getElementById(id);
+                window.getSelection().selectAllChildren(str);
+                document.execCommand("Copy")
+            }
+        </script>
+
+ 
       </div>
       
   </body>
@@ -83,6 +170,32 @@
       }
     }
   })
+</script>
+
+
+
+
+<script>
+
+
+
+  var paymentinfo="費用的部分，可以："<br>"1 ) 現金碰面收。 2 ) 轉帳匯款 :【永豐銀行】（807）鶯歌分行 帳號：14001800111461 戶名：邱順群  3)【中華郵政】（700）- 三峽分局 帳號：03113250513672 戶名：邱順群 4）LinePay好友轉帳，可 加入lineID：qwerty1025 請小幫手阿順收"
+
+
+              function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + paymentinfo);
+}
 </script>
 </html>
 

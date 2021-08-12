@@ -9,8 +9,7 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>  
-    <style>
-      @tailwind base;
+    <style> 
       
     </style>
   </head>
@@ -26,7 +25,7 @@
               羊咩咩費用 - 計算機
             </span>
             
-            <br><br><br>
+            <br><br> 
 
             <div id="cart" class =" text-xs">
               <ul v-for = "food in foods" >
@@ -39,11 +38,10 @@
 
               <br>
               <div class = "grid grid-cols-3">
-              <div Class=" grid-rows-1 text-2xl font-semibold inline-block py-1 px-4 uppercase
+              <div Class=" grid-rows-1 text-xl font-semibold inline-block py-1 px-4 uppercase
                           rounded text-yellow-600 bg-yellow-200 uppercase last:mr-0 mr-1">
-              共計 {{total}} 元 </div>
+              共計 {{total}} 元 </div> 
 
-              
                 <!-- <button class="" type="button" onclick="copyEvent('copy2')"></button>
                 <button type="button" ></button> -->
         
@@ -51,35 +49,65 @@
                                font-bold py-2 px-4 border-b-4 border-pink-700 
                                hover:border-pink-500 rounded grid-rows-1 " 
                         onclick="copyEvent('copy2')"
-                               >
-                               付費資訊
+                               > 付費資訊
                 </button>
         
                 <button class="bg-pink-500 hover:bg-pink-400 text-white 
                                font-bold py-2 px-4 border-b-4 border-pink-700 
                                hover:border-pink-500 rounded grid-rows-1 "
                         onclick="copyEvent('copy3')"
-                               >
-                               收件資訊
+                               > 收件資訊
                 </button>
+             </div>
+          </div> 
         </div>
-            </div>
-            
+      </div> 
+    <div>
+        
+      <div class = "flex flex-rows">  
+
+      <section class="container px-6 py-4 mx-auto">
+        <div class="grid gap-6 mb-8 md:grid-cols-2 lg:grid-cols-4">
+
+      <!-- Card 3 -->
+      <div class="flex items-center p-4 bg-white border-2 border-gray-200 rounded-lg shadow-sm dark:bg-gray-800">
+                
+        <textarea  
+        name="mytext"
+        rows="6"
+        cols="40"
+        id="copy3" 
+        required> 🌟費用的部分，可以：🌟 
+🌿 1) 現金碰面收。 
+🌲 2) 轉帳匯款 :
+【永豐銀行】（807）鶯歌分行
+帳號：14001800111461 
+戶名：邱順群
+
+🎋 3 )轉帳匯款 :
+【中華郵政】（700）- 三峽分局
+帳號：03113250513672
+戶名：邱順群 
+
+🍃 4）LinePay好友轉帳，
+可加LINEID：qwerty1025 
+請小幫手:賣羊奶的阿順收
+
+或是點擊連結，找他
+https://line.me/ti/p/mMAa5btwik
+        </textarea>  
         </div>
-      </div>
 
-      <div>
-        
 
-        
-<div class = "flex flex-rows"> 
 
-        <textarea name="mytext"
+        <!-- Card 4 -->
+        <div class="flex items-center p-4 bg-white border-2 border-gray-200 rounded-lg shadow-sm dark:bg-gray-800">
+           
+          <textarea name="mytext" 
         rows="6"
         cols="40"
         id="copy2" 
-        required>
- 🌟提醒您，預約宅配收貨🌟
+        required> 🌟提醒您，預約宅配收貨🌟
  管理室代收記得放保冰袋喲
 
  🌿 提醒環保 愛地球的你 🌿
@@ -94,34 +122,16 @@
  或是選導航連結：
  https://maps.app.goo.gl/eZSyFe2B4jxyrQPz9
         </textarea>
+        </div>
 
-
-        <textarea name="mytext"
-        rows="6"
-        cols="40"
-        id="copy3" 
-        required>
-🌟費用的部分，可以：🌟 
-🌿 1) 現金碰面收。 
-🌲 2) 轉帳匯款 :
- 【永豐銀行】（807）鶯歌分行
-  帳號：14001800111461 
-  戶名：邱順群
-
-🎋 3 )轉帳匯款 :
- 【中華郵政】（700）- 三峽分局
-  帳號：03113250513672
-  戶名：邱順群 
-
-🍃 4）LinePay好友轉帳，
-  可加LINEID：qwerty1025 
-  請小幫手:賣羊奶的阿順收
-
-  或是點擊連結，找他
-  https://line.me/ti/p/mMAa5btwik
-        </textarea>
+        </div>
+      </section>
 
         
+
+
+
+
 </div>
         
         
@@ -180,27 +190,76 @@
 
 
 
+
+
+
+
 <script>
 
 
+Vue.createApp({
+  data(){
+    return {
+      num1:0,
+      num2:0,
+      result:0,
+      operate:'+',
+      record:[],
+      index:0,
+       imgurl2:"https://i.imgur.com/Dt8KwmE.jpg",
+                imgStyle:{
+                    width:'320px',
+                    borderRadius:'19px',
+                },
+    }    
+  },
+  methods:{
+    cal(){
+      switch(this.operate){
+        case '+':
+          this.result=this.num1+this.num2
+          break;
+        case '-':
+         this.result= this.num1-this.num2
+          break;
+        case '*':
+         this.result= this.num1*this.num2
+          break;
+        case '/':
+         this.result= this.num1/this.num2
+          break;
+          
+      } 
+      this.record.push(`${this.num1} ${this.operate} ${this.num2} = ${this.result}`);
+     this.setItem()
+       this.getitem()
+      this.reset()
+    },
+    setItem(){
+       localStorage.setItem('total', JSON.stringify(this.record))
+    },
+     getitem() {
+      this.record = JSON.parse(localStorage.getItem('total')) || [];
+    } ,
+    reset(){
+      this.num1=0,
+      this.num2=0
+    },
+     clear(){         
+       this.record=localStorage.clear()  
+            this.getitem()
+     } ,
+    removeItem(index) { //刪除選取的資料
+      this.index=index
+      this.record.splice(index,1);
+      this.setItem()
 
-  var paymentinfo="費用的部分，可以："<br>"1 ) 現金碰面收。 2 ) 轉帳匯款 :【永豐銀行】（807）鶯歌分行 帳號：14001800111461 戶名：邱順群  3)【中華郵政】（700）- 三峽分局 帳號：03113250513672 戶名：邱順群 4）LinePay好友轉帳，可 加入lineID：qwerty1025 請小幫手阿順收"
-
-
-              function myFunction() {
-  /* Get the text field */
-  var copyText = document.getElementById("myInput");
-
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-  /* Copy the text inside the text field */
-  document.execCommand("copy");
-
-  /* Alert the copied text */
-  alert("Copied the text: " + paymentinfo);
+    }
+  },
+  mounted(){
+     this.getitem()
 }
+}).mount("#app")
 </script>
 </html>
 

@@ -1,0 +1,238 @@
+<html>
+  <head>
+    <title>Tippy</title>
+
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <style> 
+
+        .tippy-box[data-inertia][data-state='visible'] {
+        transition-timing-function: cubic-bezier();
+        }
+
+        .tippy-box[data-theme~='tomato'] {
+            background-color: tomato;
+            color: rgb(0, 0, 0);
+            width:100vw;
+            }
+
+        
+</style>
+
+
+  </head>
+  
+        
+  <body class="w-full ">
+  
+      <div class="js-parent">
+          <button data-template="one" 
+                  class="m-4 bg-blue-600 text-2xl text-gray-100 h-40 w-full" 
+          >One</button>
+     </div> 
+
+
+      <template id="one" style="background-colo:white" >
+        <strong> 請輸入本次成績 </strong>
+        <button data-template="nested">Nested in One</button>  
+          <div class="flex m-4 ">
+            <div class="mx-auto flex grid gap-2 grid-cols-3">  
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        1 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        2 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        3 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-2 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        4 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        5 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        6 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        7 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        8 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        9 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        0 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        / 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        X 
+                    </button>
+                </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+      </template>
+      
+      <template id="nested">
+        <strong>Content for `nested in one`</strong>
+      </template>
+
+      <!-- <button data-template="one"
+              class="m-4 bg-blue-600 text-2xl text-gray-100 h-40 w-full">One  </button>
+      <button data-template="two"
+              class="m-4 bg-blue-600 text-2xl text-gray-100 h-40 w-full">Three</button> 
+      <button data-template="three"
+              class="m-4 bg-blue-600 text-2xl text-gray-100 h-40 w-full">Three</button> 
+      
+      <div style="display: none;">
+        <div id="one">
+
+<button data-template="one"
+              class="m-4 bg-blue-600 text-2xl text-gray-100 h-40 w-full">One  </button>
+          <strong>Content for `one`</strong>
+        </div>
+        <div id="two">
+          <strong>Content for `two`</strong>
+        </div>
+        <div id="three">
+          <strong>Content for `three`</strong>
+        </div>
+      </div> -->
+  
+         <hr> 
+  
+  
+<!--   
+         <div id="template" style="display: none;">
+          <strong>Bolded caethwrtjnrysmnymnsynsrynontent</strong>
+        </div> -->
+
+    <hr> 
+        <!-- <button id="myButton"
+            class=" m-4 bg-purple-600 text-2xl text-gray-100 h-40 w-full 
+            hover:bg-purple-700 
+            focus:outline-none focus:ring-2 
+            focus:ring-purple-600 focus:ring-opacity-50 ">
+            My button
+       </button>
+
+       <hr> 
+
+
+
+       <div id="template" style="display: none;">
+        <strong>Bolded caethwrtjnrysmnymnsynsrynontent</strong>
+      </div> -->
+
+       <!-- <div id="example3" style="display: none;" >
+        <div class="container mx-auto">
+            <div class="bg-white max-w-sm mx-auto rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-500 transform hover:scale-105 cursor-pointer">
+              <div class="h-20 bg-red-500 flex items-center justify-between">
+                <h1 class="text-white ml-4 border-2 py-2 px-4 rounded-full">1</h1>
+                <p class="mr-20 text-white text-lg">Agenda/Topic</p>
+                <p class="mr-4 text-white font-thin text-lg">SAAS-0000</p>
+              </div>
+        
+              <p class="py-6 text-lg tracking-wide ml-16">Description of what is done here</p>
+               <hr > -->
+              <!-- <div class="flex justify-between px-5 mb-2 text-sm text-gray-600">
+                <p>Last Update</p>
+                <p>3/08/2021</p>
+              </div>
+            </div>
+          </div>
+        <strong>Bolded haJJJJJ content</strong>
+      </div> -->
+
+
+        <!-- <button id="btn9"
+            class=" m-4 bg-blue-600 text-2xl text-gray-100 h-40 w-full 
+            hover:bg-blue-700 
+            focus:outline-none focus:ring-2 
+            focus:ring-blue-600 focus:ring-opacity-50 ">
+            My button~
+       </button>  -->
+
+<script>  
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length) {
+            initializeTippy();
+        }
+    });
+});
+observer.observe(document.querySelector('.js-parent'), {
+		 childList: true,
+	});
+
+initializeTippy();
+function initializeTippy() {
+    return tippy('button', {
+        interactive: true,
+        trigger: 'click',
+		 allowHTML: true,
+         theme: 'tomato',
+		 appendTo: 'parent',
+        content(reference) {
+            const id = reference.getAttribute('data-template');
+                const template = document.getElementById(id);
+                return template.innerHTML;
+        },
+    })
+}
+// tippy('button', {
+//     content(reference) {
+//       const id = reference.getAttribute('data-template');
+//       const template = document.getElementById(id);
+//       return template.innerHTML;
+//     },
+//   });
+
+
+
+      
+    </script>
+
+ 
+  </body>
+</html>

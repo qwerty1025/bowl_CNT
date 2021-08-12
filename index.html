@@ -4,31 +4,71 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
- 
-    <title>Vue init</title>
+    
+    <link rel="icon" type="image/png" href="assets/img/favicon.png"/>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <title>小工具選擇</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>  
   </head>
 
-  <body>
+  <body> 
 
+     <button onclick="window.location.href='/bowl_CNT/test_v0811.html'">測試用頁面</button>
+     <button onclick="window.location.href='/bowl_CNT/stander_1.html'" >正式頁面-1</button>
+     <button onclick="window.location.href='/bowl_CNT/stander_2.html'" >正式頁面-2</button>
+     <button onclick="window.location.href='/bowl_CNT/stander_3.html'" >正式頁面-3</button>
+     <button onclick="window.location.href='/bowl_CNT/stander_4.html'" >正式頁面-4</button>
 
-    <button onclick="window.location.href='/bowl_CNT/test_v0811.html'">Continue</button>
-
-
-      <div class="app20">
+      <!-- <div class="app20">
         <select v-model="select">
             <option disabled>請選擇</option>
             <option v-for="item in dataArray" :value="item">{{item}}</option>
         </select>
       </div>
   </body>
-  <script>
-    var app20 = new Vue({
-        el:'.app20',
-        data:{
-            dataArray:['Leo','Perter','Harry'],
-						selected:''
-        }
-    });
-</script>
+      <script>
+        var app20 = new Vue({
+            el:'.app20',
+            data:{
+                dataArray:['Leo','Perter','Harry'],
+                selected:''
+            }
+        });
+    </script> -->
+
+<!-- 
+    <div id='app17'>
+      一般寫法:
+      <button @click="counter+=1">{{counter}}</button>
+      <button @click="counter+=1">{{counter}}</button>
+      元件寫法：
+      <counter></counter>
+      <counter></counter>
+    </div>
+
+    <script>
+
+      //  這是方法 1 -SS
+      
+      Vue.component('counter',{
+          data:function(){
+              return{
+                  counter: 0
+              } 
+          },
+          template:`
+          <button @click="counter+=1">{{counter}}</button>
+          `
+      });
+      var app117 = new Vue({
+          el: '#app17',
+          data:{
+              counter: 0
+          }
+      })
+      </script> -->
+
+
 </html>

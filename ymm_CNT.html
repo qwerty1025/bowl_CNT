@@ -5,29 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
  
-    <title>Vue init</title>
+    <title>羊咩咩 費用計算機</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>  
   </head>
 
-  <body>
 
-      <div class="app20">
-        <select v-model="select">
-            <option disabled>請選擇</option>
-            <option v-for="item in dataArray" :value="item">{{item}}</option>
-        </select>
-      </div>
+  <body class="flex flex-col justify-center w-full h-full bg-gray-100 "> 
+      <!-- Component Start -->
+      <div class="flex flex-col flex-grow
+                  max-w-xl bg-white shadow-xl overflow-hidden">
+        <div class="bg-yellow-300 pt-4 text-center "> 
+            <span class="text-2xl font-semibold inline-block py-1 px-4 uppercase
+                          rounded text-yellow-600 bg-yellow-200 uppercase last:mr-0 mr-1">
+              羊咩咩費用 - 計算機
+            </span>
+            
+            <br><br><br>
 
+            <div id="cart" class ="text-xl ">
+              <ul v-for = "food in foods" >
+                <li class ="border-1 border-yellow-800 text-yellow-700 " >
+                  {{food.title}} {{food.price}}元 x
+                  <input type="number" v-model="food.amount" size=1  class= "m-2 text-center bg-yellow-100 text-gray-900 rounded-xl w-20" >
+                  = {{food.price * food.amount}}
+                </li>
+              </ul>
 
-      <div id="cart">
-        <ul v-for = "food in foods">
-          <li>
-            {{food.title}} {{food.price}}元 x
-            <input v-model="food.amount" size=1>
-            = {{food.price * food.amount}}
-           </li>
-        </ul>
-        共計 {{total}} 元
+              <br>
+              <div Class="text-2xl font-semibold inline-block py-1 px-4 uppercase
+                          rounded text-yellow-600 bg-yellow-200 uppercase last:mr-0 mr-1">
+              共計 {{total}} 元 </div>
+            </div>
+        </div>
       </div>
       
   </body>
@@ -40,13 +51,19 @@
         }
     });
 
-    var data =[{
-    title: "雞排",  price: 55,  amount:1
-  }, {
-    title: "薯條",  price: 40,  amount:1
-  }, {
-    title: "可樂",  price: 25,  amount:1
-  }];
+    var data =[
+      { title: "羊奶_家庭號_大瓶",  price: 130,  amount:0 },
+      { title: "羊奶_家庭號_中瓶",  price: 70,  amount:0 }, 
+      { title: "羊奶_試飲包",      price:  0,  amount:0 }, 
+      { title: "羊奶起司_大_迷迭香",  price: 100,  amount:0 }, 
+      { title: "羊奶起司_大_橘子皮",  price: 100,  amount:0 }, 
+      { title: "羊奶起司_小_迷迭香",  price: 40,  amount:0 }, 
+      { title: "羊奶起司_小_橘子皮",  price: 40,  amount:0 }, 
+      { title: "羊奶冰淇淋_小_香草",  price: 35,  amount:0 }, 
+      { title: "羊奶冰淇淋_小_半糖奶茶",  price: 35,  amount:0 }, 
+      { title: "羊奶冰淇淋_小_蔓越莓",  price: 35,  amount:0 }, 
+      { title: "羊奶冰淇淋_小_葡萄",  price: 35,  amount:0 }];
+
   var vm = new Vue({
     el:"#cart",
     data:{

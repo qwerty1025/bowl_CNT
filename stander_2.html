@@ -46,13 +46,12 @@
                                   <div class="flex flex-wrap -mx-2">
                                   <template x-for="(color, index) in colors" :key="index">
                                       <div 
-                                          class="px-2"
-                                      >
+                                          class="px-2" >
                                           <template x-if="colorSelected === color">	
                                               <div
                                                   class="w-8 h-8 inline-flex rounded-full cursor-pointer border-4 border-white"
                                                   :style="`background: #afbbc9; box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2);`"
-                                              > ha</div>
+                                              ></div>
                                           </template>
                                           
                                           <template x-if="colorSelected != color">

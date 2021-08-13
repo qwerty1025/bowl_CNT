@@ -8,17 +8,20 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 
-       <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <title>看箭，你的厲害！</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+        <title>看箭，你的厲害！</title>
         <link rel="shortcut icon" href="https://i.imgur.com/wAi46rS.png" />
         <link rel="bookmark" href="https://i.imgur.com/wAi46rS.png" />
 
 
-    <link rel="image_src" href="https://i.imgur.com/wAi46rS.png" />
-    <meta property="og:image"       content="https://i.imgur.com/wAi46rS.png" />
+        <link rel="image_src" href="https://i.imgur.com/wAi46rS.png" />
+        <meta property="og:image"       content="https://i.imgur.com/wAi46rS.png" />
 
       <meta name="description" content="弓箭-保齡球 線上計分板">
       <meta name="keywords" content="保齡球, 射箭, 線上計分板">
@@ -26,6 +29,17 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
+
+        .tippy-box[data-inertia][data-state='visible'] {
+            transition-timing-function: cubic-bezier();
+        }
+
+        .tippy-box[data-theme~='tomato'] {
+            background-color: rgb(19, 87, 0);
+            color: rgb(113, 255, 168);
+            width:100vw;
+            }
+
         .img-replace {
           /* replace text with an image */
           display: inline-block;
@@ -173,21 +187,92 @@
 </head>
 
 <body class="flex flex-col justify-center w-full h-full bg-gray-100 ">
+
+
+    <template id="one" style="background-colo:white" >
+        <strong> 請輸入本次成績 </strong>
+        <button data-template="nested">Nested in One</button>  
+          <div class="flex m-4 ">
+            <div class="mx-auto flex grid gap-2 grid-cols-3">  
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        1 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        2 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        3 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-2 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        4 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        5 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        6 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        7 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        8 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        9 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        0 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        / 
+                    </button>
+                </div>
+                <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
+                    <button class="font-bold text-3xl px-2 text-center ">
+                        X 
+                    </button>
+                </div>
+            </div>
+          </div> 
+      </template>
+
+
+
+
     <form id="ddasd">
         <!-- Component Start -->
-        <div class="flex flex-col flex-grow
+        <div class="flex flex-col flex-growv
                     max-w-xl bg-white shadow-xl overflow-hidden">
-                <div class="bg-yellow-300 pt-4 text-center ">
+                <div class="bg-yellow-300 pt-4 text-center "> 
+                        <!-- <div class="app20">
 
-
-                        <div class="app20">
-      <select v-model="select">
-          <option disabled>請選擇</option>
-          <option v-for="item in dataArray" :value="item">{{item}}</option>
-      </select>
-  </div>
-
-
+                            <select v-model="select">
+                                <option disabled>請選擇</option>
+                                <option v-for="item in dataArray" :value="item">{{item}}</option>
+                            </select>
+                        </div> --> 
 
                     <span class="text-2xl font-semibold inline-block py-1 px-4 uppercase
                                  rounded text-yellow-600 bg-yellow-200 uppercase last:mr-0 mr-1">
@@ -239,7 +324,8 @@
                                                                 hover:shadow-xl transition-shadow duration-300 ease-in-out" >
                                                         <div class="grid grid-cols-2  gap-0 h-auto justify-items-stretch border-2 border-gray-900 ">
                                                             <div class = "grid-rows-1 col-span-2  bg-gray-800 text-gray-100 text-center pt-2 "> 1 </div>
-                                                            <div class = "grid-rows-2 bg-gray-0 justify-center border-2 border-gray-100 "> ?? </div>
+                                                            <!-- <div class = "grid-rows-2 bg-gray-0 justify-center border-2 border-gray-100 "> ?? </div> -->
+                                                            <button id="myButton" class = "grid-rows-2 bg-gray-0 justify-center border-2 border-gray-100 ">Myy</button>
                                                             <div class = "grid-rows-3 bg-gray-0 justify-center border-l-2 border-b-2  border-gray-900 "> ?? </div>
                                                             <div class = "grid-rows-4 col-span-2 bg-gray-0 text-center pt-2 "> 88 </div>
                                                         </div>
@@ -715,6 +801,45 @@
 </body>
 
  <script>
+
+
+tippy('#myButton', {
+  content: "I'm a Tippy tooltip!",
+});
+
+const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+        if (mutation.addedNodes.length) {
+            initializeTippy();
+        }
+    });
+});
+observer.observe(document.querySelector('.js-parent'), {
+		 childList: true,
+	});
+
+initializeTippy();
+function initializeTippy() {
+    return tippy('button', {
+        interactive: true,
+        trigger: 'click',
+		 allowHTML: true,
+         theme: 'tomato',
+		 appendTo: 'parent',
+        content(reference) {
+            const id = reference.getAttribute('data-template');
+                const template = document.getElementById(id);
+                return template.innerHTML;
+        },
+    })
+}
+
+
+
+
+
+
+
     var app20 = new Vue({
         el:'.app20',
         data:{
@@ -785,10 +910,10 @@
         var R10s2 = document.getElementById('R10s2').value;
         var R10s3 = document.getElementById('R10s3').value;
 
-<!--        document.getElementById('id_xst').value =" 額外獎勵 下一次的分數"-->
+   document.getElementById('id_xst').value =" 額外獎勵 下一次的分數"
 
 
-        <!--第十局-->
+        // <!--第十局-->
         if( R1s1 && R1s2 && R2s1 && R2s2 && R3s1 && R3s2 && R4s1 && R4s2 && R5s1 && R5s2 && R6s1 && R6s2 && R7s1 && R7s2 && R8s1 && R8s2 && R9s1 && R9s2 && R10s1 && R10s2 && R10s3 )
         {
             console.log('sHoot = 21');

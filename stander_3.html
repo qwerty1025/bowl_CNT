@@ -16,8 +16,8 @@
         }
 
         .tippy-box[data-theme~='tomato'] {
-            background-color: tomato;
-            color: rgb(0, 0, 0);
+            background-color: rgb(19, 87, 0);
+            color: rgb(113, 255, 168);
             width:100vw;
             }
 
@@ -38,8 +38,8 @@
 
 
       <template id="one" style="background-colo:white" >
-        <strong> 請輸入本次成績 </strong>
-        <button data-template="nested">Nested in One</button>  
+        <strong class ="text-center "> 請輸入本次成績 </strong>
+        <!-- <button data-template="nested">Nested in One</button>   -->
           <div class="flex m-4 ">
             <div class="mx-auto flex grid gap-2 grid-cols-3">  
                 <div class="w-auto h-auto grid-rows-1 items-center justify-center flex-1 h-full p-2 bg-gray-100 text-gray-900 shadow rounded-lg">
@@ -103,19 +103,12 @@
                     </button>
                 </div>
             </div>
-          </div>
-
-
-
-
-
-
-
+          </div> 
       </template>
       
-      <template id="nested">
+      <!-- <template id="nested">
         <strong>Content for `nested in one`</strong>
-      </template>
+      </template> -->
 
       <!-- <button data-template="one"
               class="m-4 bg-blue-600 text-2xl text-gray-100 h-40 w-full">One  </button>

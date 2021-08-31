@@ -5,9 +5,11 @@
     <title> 這是一個外接的內容，希望可以進行得順利 </title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 
-
-    <!--   Link outsider plugin -->
-
+ 
+    <!--    About vueTools-->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    
     <!--    about mapbox-->
     <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
@@ -20,23 +22,22 @@
     <!--    font-awesome-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
-    <style>
- 
-    .Px_title {
-                font-size: 23px;
-                color: black;
-                font-family: 汉仪新蒂手札体;
-                font-weight: 700; 
-                font-style: italic;
-            }
+    <style> 
+        .Px_title {
+                    font-size: 23px;
+                    color: black;
+                    font-family: 汉仪新蒂手札体;
+                    font-weight: 700; 
+                    font-style: italic;
+                }
 
-        .bg-hd-fuc-1{ background-image: url('{% static "img/ui_Export/UI-5-04.png" %}'); }
-        .bg-hd-fuc-2{ background-image: url('{% static "img/ui_Export/UI_mb.png" %}'); }
-        .bg-hd-fuc-3{ background-image: url('{% static "img/ui_Export/UI-5-05.png" %}'); }
+        .bg-hd-fuc-1{ background: url('static/UI/runHD1_v1.png'); }
+        .bg-hd-fuc-2{ background: url('static/UI/runHD2_v1.png'); }
+        .bg-hd-fuc-3{ background: url('static/UI/runHD3_v1.png'); }
 
-        .bg-ft-fuc-1{ background-image: url('{% static "img/ui_Export/runPage_asBtn_LocationHere_v1.png" %}'); }
-        .bg-ft-fuc-2{ background-image: url('{% static "img/ui_Export/runPage_asBtn_NbList_v1.png" %}'); }
-
+        .bg-ft-fuc-2{ background: url('static/UI/runPage_asBtn_NbList_v1.png'); }
+        .bg-ft-fuc-1{ background: url('static/UI/runPage_asBtn_LocationHere_v1.png'); }
+        
 
         .bg-notic-hd3{ background-image: url('{% static "img/ui_Export/rP_HD3_v1.png" %}'); }
         .bg-notic-clone-hd3{ background-image: url('{% static "img/ui_Export/runPage_Favoritesitem_v2.png" %}'); }
@@ -47,21 +48,21 @@
         .bg-notic-clone-hd1{ background-image: url('{% static "img/ui_Export/runPage_PxListitem_v1.png" %}'); }
 
  
-            .ctr_HD1_sub{ background-image: url('{% static "img/ui_Export/rP_HD1_sub_v1.png" %}'); }
-              
-            .ctr_push{ background-image: url('{% static "img/ui_Export/push_null.png" %}'); }
-            .ctr_close{ height: 34px; background-image: url('{% static "img/ui_Export/close.png" %}'); }
-            .ctr_close_C{ height: 0px; border:solid #ffffff00 }
+        .ctr_HD1_sub{ background-image: url('{% static "img/ui_Export/rP_HD1_sub_v1.png" %}'); }
+            
+        .ctr_push{ background-image: url('{% static "img/ui_Export/push_null.png" %}'); }
+        .ctr_close{ height: 34px; background-image: url('{% static "img/ui_Export/close.png" %}'); }
+        .ctr_close_C{ height: 0px; border:solid #ffffff00 }
 
-            .ctr_HD1_sub{ background-image: url('{% static "img/ui_Export/rP_HD1_sub_v1.png" %}'); }
-            .ctr_HD3{ background-image: url('{% static "img/ui_Export/rP_HD3_v1.png" %}'); }
-            .ctr_FT3{ background-image: url('{% static "img/ui_Export/runPage_NbList_v1.png" %}'); }
+        .ctr_HD1_sub{ background-image: url('{% static "img/ui_Export/rP_HD1_sub_v1.png" %}'); }
+        .ctr_HD3{ background-image: url('{% static "img/ui_Export/rP_HD3_v1.png" %}'); }
+        .ctr_FT3{ background-image: url('{% static "img/ui_Export/runPage_NbList_v1.png" %}'); }
 
 
-            .bg-pxListitem{ background-image: url('{% static "img/ui_Export/runPage_PxListitem_v1.png" %}'); }
-            .bg-favListitem{ background-image: url('{% static "img/ui_Export/runPage_Favoritesitem_v1.png" %}'); }
-            .bg-nbrList{ background-image: url('{% static "img/ui_Export/runPage_NbList_v1.png" %}'); }
-            .bg-nbrListitem{ background-image: url('{% static "img/ui_Export/runPage_asBtn_Whereami_v1.png" %}'); } 
+        .bg-pxListitem{ background-image: url('{% static "img/ui_Export/runPage_PxListitem_v1.png" %}'); }
+        .bg-favListitem{ background-image: url('{% static "img/ui_Export/runPage_Favoritesitem_v1.png" %}'); }
+        .bg-nbrList{ background-image: url('{% static "img/ui_Export/runPage_NbList_v1.png" %}'); }
+        .bg-nbrListitem{ background-image: url('{% static "img/ui_Export/runPage_asBtn_Whereami_v1.png" %}'); } 
 
     </style>
 

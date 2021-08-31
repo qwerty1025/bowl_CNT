@@ -1,716 +1,451 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset=utf-8 />
-    <title> 這是一個外接的內容，希望可以進行得順利 </title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-
-
-    <!--   Link outsider plugin -->
-
-    <!--    about mapbox-->
-    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
-    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
-
-    <!--<--       about css -->
-    <!--<--<--    tailwindcss-->
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-
-    <!--    font-awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
- 
-    <style>
- 
-    .Px_title {
-                font-size: 23px;
-                color: black;
-                font-family: 汉仪新蒂手札体;
-                font-weight: 700; 
-                font-style: italic;
-            }
-
-        .bg-hd-fuc-1{ background-image: url('{% static "img/ui_Export/UI-5-04.png" %}'); }
-        .bg-hd-fuc-2{ background-image: url('{% static "img/ui_Export/UI_mb.png" %}'); }
-        .bg-hd-fuc-3{ background-image: url('{% static "img/ui_Export/UI-5-05.png" %}'); }
-
-        .bg-ft-fuc-1{ background-image: url('{% static "img/ui_Export/runPage_asBtn_LocationHere_v1.png" %}'); }
-        .bg-ft-fuc-2{ background-image: url('{% static "img/ui_Export/runPage_asBtn_NbList_v1.png" %}'); }
-
-
-        .bg-notic-hd3{ background-image: url('{% static "img/ui_Export/rP_HD3_v1.png" %}'); }
-        .bg-notic-clone-hd3{ background-image: url('{% static "img/ui_Export/runPage_Favoritesitem_v2.png" %}'); }
-
-
-        .bg-sub-1{ background-image: url('{% static "img/ui_Export/rP_HD1_sub_v1.png" %}'); }
-
-        .bg-notic-clone-hd1{ background-image: url('{% static "img/ui_Export/runPage_PxListitem_v1.png" %}'); }
-
- 
-            .ctr_HD1_sub{ background-image: url('{% static "img/ui_Export/rP_HD1_sub_v1.png" %}'); }
-              
-            .ctr_push{ background-image: url('{% static "img/ui_Export/push_null.png" %}'); }
-            .ctr_close{ height: 34px; background-image: url('{% static "img/ui_Export/close.png" %}'); }
-            .ctr_close_C{ height: 0px; border:solid #ffffff00 }
-
-            .ctr_HD1_sub{ background-image: url('{% static "img/ui_Export/rP_HD1_sub_v1.png" %}'); }
-            .ctr_HD3{ background-image: url('{% static "img/ui_Export/rP_HD3_v1.png" %}'); }
-            .ctr_FT3{ background-image: url('{% static "img/ui_Export/runPage_NbList_v1.png" %}'); }
-
-
-            .bg-pxListitem{ background-image: url('{% static "img/ui_Export/runPage_PxListitem_v1.png" %}'); }
-            .bg-favListitem{ background-image: url('{% static "img/ui_Export/runPage_Favoritesitem_v1.png" %}'); }
-            .bg-nbrList{ background-image: url('{% static "img/ui_Export/runPage_NbList_v1.png" %}'); }
-            .bg-nbrListitem{ background-image: url('{% static "img/ui_Export/runPage_asBtn_Whereami_v1.png" %}'); } 
-
-    </style>
-
-        <style>
-            html,body { margin: 0; padding: 0;  }
-                #map {
-                        position: absolute; top: 0vh;
-                        width : 100vw;
-                        height: 100vh;
-                      }
-                      .star {
-                          font-size: 1.5em;
-                      }
-
-                      .bg-setUP-1{
-                          background-repeat: no-repeat;
-                          background-size: contain;
-                      }
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="Chat room with vue.js and firebase">
+    <title>Vue Chat Room</title>
+    <!-- font awesome -->
+    <link rel="icon" type="image/png" href="static/images/main-icon.png">
+    <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    <!-- firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyB6vkd0_Ri2Dthm2hMbg5ySBACItkQDDpM",
+        authDomain: "vue-chat-1.firebaseapp.com",
+        databaseURL: "https://vue-chat-1.firebaseio.com",
+        projectId: "vue-chat-1",
+        storageBucket: "vue-chat-1.appspot.com",
+        messagingSenderId: "859283659872"
+        // apiKey: "AIzaSyBcH9bj8Bm5vSZPbaBnBy-FS9IaGA_iI1M",
+        // authDomain: "fire-base-demo-0811.firebaseapp.com",
+        // databaseURL: "https://fire-base-demo-0811-default-rtdb.asia-southeast1.firebasedatabase.app",
+        // projectId: "fire-base-demo-0811",
+        // storageBucket: "fire-base-demo-0811.appspot.com",
+        // messagingSenderId: "236106228674",
+        // appId: "1:236106228674:web:0682d496d91782c16fac5b",
+        // measurementId: "G-K3QBQV5GH0"
+      };
+      firebase.initializeApp(config);
+    </script>
+     <style scoped>
+        @import url('https://fonts.googleapis.com/css?family=Lato');
+        *{
+          box-sizing: border-box;
+          position: relative;
+        }
+        .container{
+          max-width: 1140px;
+          margin: 0 auto;
+          padding: 0 8px;
+          font-size: 14px;
+          font-family: 'Lato', 'sans-serif', \5FAE\8EDF\6B63\9ED1\9AD4;
+        }
+        header{
+          text-align: center;
+          overflow: hidden;
+        }
+        h1{
+          margin: 16px 0;
+        }
+        .namebox{
+          margin-bottom: 16px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .namebox input[type=text]{
+          height: 32px;
+          border-radius: 16px;
+          border: 1px solid #ccc;
+          outline: none;
+          text-align: center;
+        }
+        .namebox input[type=text].danger{
+          border: 1px solid;
+          color: red;
+        }
+        .namebox span{
+          display: inline-block;
+          margin-left: 8px;
+          color: #ccc;
+          font-size: 24px;
+          cursor: pointer;
+        }
+        .mainbox{
+          max-width: 800px;
+          margin: 0 auto;
+          margin-bottom: 36px;
+          border: 2px solid #d1d3cf;
+          border-radius: 8px;
+          background-color: #f4f5eb;
+        }
+        .boxtop{
+          user-select: none;
+        }
+        .control{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 30px;
+          background: linear-gradient(#cabdfc 25%, #7b79c7);
+          padding: 0 8px;
+        }
+        .control .title{
+          color: #fff;
+          display: flex;
+          align-items: center;
+        }
+        .control .chatIcon{
+          display: inline-block;
+          width: 24px;
+          margin-right: 4px;
+        }
+        .window-btn{
+          display: flex;
+        }
+        .window-btn .btn{
+          display: block;
+          margin: 0 2px;
+          width: 18px;
+          height: 18px;
+          line-height: 18px;
+          font-size: 12px;
+          text-align: center;
+          color: #7b7792;
+          background: linear-gradient(#fffffc 10%, #d5d8d1);
+          border: 1px solid #d7d9d5;
+          border-radius: 4px;
+          cursor: default;
+        }
+        .function-1{
+          display: flex;
+          font-size: 12px;
+        }
+        .function-1 .item{
+          display: block;
+          padding: 2px 8px;
+          cursor: default;
+        }
+        .function-1 .item span{
+          text-decoration: underline;
+        }
+        .function-2{
+          display: flex;
+          align-items: center;
+          padding: 4px 0;
+          padding-left: 8px;
+          font-size: 12px;
+        }
+        .function-2 img{
+          width: 24px;
+        }
+        .function-2 .phone{
+          border: 1px solid #d1d3cf;
+          border-radius: 25px;
+          width: 96px;
+          height: 46px;
+          margin-right: 4px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          cursor: default;
+        }
+        .function-2 .phone:after{
+          content: '';
+          display: block;
+          border-left: 6px solid transparent;
+          border-right: 6px solid transparent;
+          border-top: 6px solid #989898;
+          margin-right: 6px;
+        }
+        .function-2 .item{
+          text-align: center;
+          cursor: default;
+          width: 58px;
+          padding: 6px 0;
+        }
+        .function-2 .item img{
+          display: block;
+          margin: 0 auto;
+        }
+        .userStatus{
+          padding: 4px 0;
+          padding-left: 8px;
+          display: flex;
+          align-items: center;
+        }
+        .userStatus span:first-child{
+          display: inline-block;
+          width: 12px;
+          height: 12px;
+          border: 2px solid #fba742;
+          border-radius: 50%;
+          background-color: #feda16;
+          margin-right: 6px;
+        }
+        .userStatus .fa-edit{
+          margin-left: 8px;
+          color: #555;
+          cursor: pointer;
+        }
+        .userStatus .editText input{
+          font-size: inherit;
+        }
+        .userStatus .editText i{
+          display: inline-block;
+          margin-left: 6px;
+          color: #8f8f8f;
+          font-size: 18px;
+          cursor: pointer;
+        }
+        .chatbox{
+          height: 50vh;
+          padding-left: 16px;
+          overflow-y: auto;
+          border: 1px solid #d7d9d5;
+          background-color: #fff;
+          outline: none;
+        }
+        .msg{
+          margin: 8px 0;
+        }
+        .msg h3{
+          margin:0;
+          margin-right: 2px;
+          color: #333399;
+          display: inline-block;
+        }
+        .msg h3.self{
+          color: #888;
+        }
+        .text-function{
+          font-size: 24px;
+          padding: 2px 0;
+          padding-left: 8px;
+          display: flex;
+          user-select: none;
+        }
+        .text-function span{
+          padding: 2px 6px;
+          cursor: default;
+        }
+        .inputMsg{
+          padding: 0 6px;
+          padding-bottom: 12px;
+        }
+        .inputMsg textarea{
+          resize: none;
+          width: 100%;
+          height: 60px;
+          border-radius: 3px;
+          border: 1px solid #ccc;
+          outline: none;
+          padding: 4px 6px;
+          font-size: inherit;
+          font-family: inherit;
+        }
+        @media(max-width: 768px){
+          .container{font-size: 12px;}
+          .function-1, .function-2{font-size: 10px;}
+          .function-1 .item{padding: 2px 6px;}
+          .function-2 img{width: 20px;}
+          .function-2 .phone{
+            width: 80px;
+            height: 36px;
+          }
+          .function-2 .item{width: 50px;}
+          .function-2 .item:nth-child(3),
+          .function-2 .item:nth-child(5){display: none;}
+          .userStatus .editText i{font-size: 16px;}
+          .chatbox{padding-left: 8px;}
+          .text-function{font-size: 18px;}
+        }
         </style>
 
 
-    </head>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
 
-    <body id="bd_id001">
-
-    <div class="fav-ctn ">
-              <div id="favList_id001" class="playlist-ctn"></div> 
-
-            <div id="nbrCNT_id001" class="nbr-ctn container ">
-              <div id="nbrList_id001" class="playlist-ctn ctr_HD3 fuc_BD_Mode1"></div>
+    <template>
+        <div id="app" class="container">
+          <header>
+            <h1>Chat with someone!</h1>
+            <div class="namebox">
+              <input type="text" v-model="username" :class="{danger:username==''}" placeholder="your name" autofocus :disabled="startChat" @keyup.enter="enterName()">
+              <span v-if="username!==''" @click="clearName()">
+                <i class="far fa-times-circle"></i>
+              </span>
             </div>
- 
-                <div class="w-full h-screen sm:w-6/12 lg:w-4/12 xl:w-4/12
-                            border-gray-800 shadow-2xl ">
-                <div class="flex flex-col
-                            h-screen mx-auto max-w-md rounded-2xl bg-gray-100 " >
-            <!-- SStart-->
-                    <div class="flex flex-row-reverse items-center h-8  w-full pt-0 z-10" >
-                        <div class="ml-4 mt-8 mr-0 flex flex-wrap content-center ">
-<!--                            <input class="btn_hd" type="image"  onclick="ctrlHD1_Func('FuncHD1')">-->
-
-                               <input class="flex items-center justify-center
-                                             bg-gray-400 bg-opacity-25 bg-center
-                                             bg-white bg-cover
-                                             rounded-xl shadow-md hover:bg-gray-800
-                                             bg-hd-fuc-2 bg-setUP-1
-                                             w-16 h-16 px-4 py-1 flex-shrink-0"
-                                      type="button"
-                                      onclick="openModal('#ctr_HD3_overlay','#ctr_HD3',true)"
-                               />
- 
-
-                        </div>
-                        <div class="ml-4 mt-8 flex flex-wrap content-center">
-                               <input class="flex items-center justify-center
-                                             bg-gray-400 bg-opacity-25 bg-center
-                                             bg-white bg-cover
-                                             rounded-xl shadow-md hover:bg-gray-800
-                                             bg-hd-fuc-3 bg-setUP-1
-                                             w-16 h-16 px-4 py-1 flex-shrink-0"
-                                       type="button"  onclick=" openModal('#ctr_HD1_overlay','#ctr_HD1',true) "/>
-<!--                            alert('返回地圖');-->
-                        </div>
-                        <div class="ml-4 mt-8 flex flex-wrap content-center">
-                               <input class="flex bbbb items-center justify-center
-                                             bg-gray-400 bg-opacity-25 bg-center
-                                             bg-white bg-cover
-                                             rounded-xl shadow-md hover:bg-gray-800
-                                             bg-hd-fuc-1 bg-setUP-1
-                                             w-16 h-16 px-4 py-1 flex-shrink-0"
-                                      id="fullscr"
-                                      type="button"  onclick="openModal('#px_overlay','#px',true) "/>  <!--CTRHD1() --> 
-                        </div>
-                     </div>
-            <!-- EEnd-->
-
-            <!-- SStart-->
-                    <div class="flex flex-col h-5/6 overflow-hidden mb-4">
-
- 
-                            <div class="z-0" id="map"></div>
-                    </div>
-            <!-- EEnd-->
-
-            <!-- SStart-->                          <!-- 【 ft-func  】-->
-                    <div class="flex flex-row-reverse items-center h-8  w-full pt-0 z-10" >
-                        <div class="">
-                               <input
-                                class="flex bbbb items-center justify-center
-                                       bg-gray-400 bg-opacity-25 bg-center
-                                       bg-white bg-cover
-                                       rounded-xl shadow-md
-                                       bg-ft-fuc-1 bg-setUP-1
-                                       w-12 h-12 px-4 py-1 flex-shrink-0"
-                                type= "button"   onclick="alert('顯示目前地點');"/>
-                        </div>
-
-                        <div class="m-20">
-                               <input
-                               class="flex bbbb items-center justify-center
-                                      bg-gray-400 bg-opacity-25 bg-center
-                                      bg-white bg-cover
-                                      rounded-xl shadow-md
-                                      bg-ft-fuc-2 bg-setUP-1
-                                      w-12 h-12 px-4 py-1 flex-shrink-0"
-                               type= "button"   onclick="openModal('#ctr_FT3_overlay','#ctr_FT3',true);"/>
-                        </div>
-                    </div>
-            <!-- EEnd-->
+          </header>
+          <div class="mainbox">
+            <div class="boxtop">
+              <div class="control">
+                <div class="title">
+                  <img class="chatIcon" src="../static/images/chat.png">
+                  <span>Instant Message</span>
                 </div>
-           </div> 
-<!--            onclick="openModal('#ctr_HD1_SUB_overlay','#ctr_HD1_SUB',true)"-->
-
-            <!-- _first_info_overlay -->
-            <div id="firstinfo_overlay"
-                 class="hidden absolute inset-0 bg-black bg-opacity-50 h-screen
-                        w-full flex justify-center items-start md:items-center pt-10 md:pt-0">
-                <!-- modal -->
-                <div id="first_info"
-                     class="pacity-0 transform -translate-y-full scale-150
-                            relative w-10/12 md:w-1/2 h-2/3 md:h-3/4 bg-white mt-16
-                            rounded shadow-lg transition-opacity transition-transform duration-300">
-
-
-                    <!-- header -->
-                    <div class="px-4 py-3 border-b border-gray-200">
-                        <h2 class="text-xl font-semibold text-gray-600">使用說明</h2>
-                    </div>
-
-                    <!-- body -->
-                    <div class="w-full p-3">
-                        建議使用“手機”行動裝置操作為主
-                        用 LINE 掃描後 <br>
-                        >> 進入LIFF 瀏覽器操作。
-                        <br> <br>
-                        <hr>
-                        <br>
-                        【 安卓系統 】搭配 chrom 瀏覽器;
-                        <br>
-                        【 蘋果系統 】搭配 Safari 瀏覽器;
-                        <br> <br>
-                        抑或按住瀏覽器網址區塊
-                        <br> ”向上拖曳“，進入全螢幕模式。
-                    </div>
-
-                    <!-- footer -->
-                    <div class="absolute bottom-0 left-0 px-4 py-3
-                                border-t border-gray-200 w-full flex justify-end items-center gap-3">
-                        <button
-                            onclick="useFullScreen()"
-                            class="bg-red-500 hover:bg-red-600 px-4 py-2 rounded text-white focus:outline-none"
-                        >Close</button>
-                    </div>
+                <div class="window-btn">
+                  <span class="btn"><i class="far fa-window-minimize"></i></span>
+                  <span class="btn"><i class="far fa-window-maximize"></i></span>
+                  <span class="btn"><i class="fas fa-times"></i></span>
                 </div>
-            </div> 
-
-            <div id="px_overlay"
-                 class="hidden absolute inset-0 bg-black bg-opacity-50 h-screen
-                        w-full flex justify-center items-start md:items-center pt-10 md:pt-0">
-            <div id="px"
-                 style ="margin-top: -45px;"
-                 class ="pacity-0 transform -translate-y-full scale-150 z-50 ctr_FT3
-                         relative w-screen h-screen
-                         bg-white bg-opacity-0 bg-contain bg-no-repeat bg-top
-                         rounded shadow-lg transition-opacity transition-transform duration-300">
-                        <button
-                            onclick="openModal('#ctr_FT3_overlay','#ctr_FT3',false)"
-                            class="absolute top-12 right-9 bg-red-500 hover:bg-red-600
-                            text-2xl w-10 h-10 rounded-full focus:outline-none text-white">
-                            &cross;
-                        </button>
-                    </div>
+              </div>
+              <div class="function-1">
+                <span class="item">訊息(<span>C</span>)</span>
+                <span class="item">編輯(<span>E</span>)</span>
+                <span class="item">檢視(<span>V</span>)</span>
+                <span class="item">互動(<span>A</span>)</span>
+                <span class="item">說明(<span>H</span>)</span>
+              </div>
+              <div class="function-2">
+                <div class="phone"><img src="../static/images/phone.png">通話</div>
+                <div class="item"><img src="../static/images/scenario.png">聊天情境</div>
+                <div class="item"><img src="../static/images/video.png">視訊</div>
+                <div class="item"><img src="../static/images/save.png">傳檔</div>
+                <div class="item"><img src="../static/images/camera.png">相片分享</div>
+                <div class="item"><img src="../static/images/meeting.png">多人會議</div>
+              </div>
+              <div class="userStatus">
+                <span></span>
+                <div class="statusText" v-show="!showEdit">
+                  {{status}}<i class="far fa-edit" @click="editStatus('input')"></i>
+                </div>
+                <div class="editText" v-show="showEdit">
+                  <input type="text">
+                  <span class="editBtn" @click="editStatus('ok')">
+                    <i class="fas fa-check-circle"></i>
+                  </span>
+                  <span class="editBtn" @click="editStatus('cancel')">
+                    <i class="far fa-times-circle"></i>
+                  </span>
+                </div>
+              </div>
             </div>
-
-
-
-            <!-- _FT3_overlay -->
-            <div id="ctr_FT3_overlay"
-                 class="hidden absolute inset-0 bg-black bg-opacity-50 h-screen
-                        w-full flex justify-center items-start md:items-center pt-10 md:pt-0">
-            <div id="ctr_FT3"
-                 style ="margin-top: -45px;"
-                 class ="pacity-0 transform -translate-y-full scale-150 z-50 ctr_FT3
-                         relative w-screen h-screen
-                         bg-white bg-opacity-0 bg-contain bg-no-repeat bg-top
-                         rounded shadow-lg transition-opacity transition-transform duration-300">
-                        <button
-                            onclick="openModal('#ctr_FT3_overlay','#ctr_FT3',false)"
-                            class="absolute top-12 right-9 bg-red-500 hover:bg-red-600
-                            text-2xl w-10 h-10 rounded-full focus:outline-none text-white">
-                            &cross;
-                        </button>
-                    </div>
+            <div class="chatbox">
+              <div class="msg" v-for="chat in livechat">
+                <h3 :class="{self:chat.username==username}">{{chat.username}}:</h3>
+                <span>{{chat.content}}</span>
+              </div>
             </div>
-
-            <!-- _ctr_HD1_SUB_overlay -->
-            <div id="bg-favListitem_overlay"
-                 class="hidden absolute inset-0 bg-black bg-opacity-50 h-screen
-                        w-full flex justify-center items-start md:items-center pt-10 md:pt-0">
-            <div id="bg-favListitem"
-                 style ="margin-top: -45px;"
-                 class ="pacity-0 transform -translate-y-full scale-150 z-50 bg-favListitem
-                         relative w-screen h-screen
-                         bg-white bg-opacity-0 bg-contain bg-no-repeat bg-top
-                         rounded shadow-lg transition-opacity transition-transform duration-300">
-                        <button
-                            onclick="openModal('#bg-favListitem_overlay','#bg-favListitem',false)"
-                            class="absolute top-12 right-9 bg-red-500 hover:bg-red-600
-                            text-2xl w-10 h-10 rounded-full focus:outline-none text-white">
-                            &cross;
-                        </button>
-                    </div>
+            <div class="text-function">
+              <span>😎</span>
+              <span>👄</span>
+              <span>🎨</span>
+              <span>🌞</span>
             </div>
-
-            <!-- _ctr_HD3_overlay -->
-            <div id="ctr_HD3_overlay"
-                 class="hidden absolute inset-0 bg-black bg-opacity-50 h-screen
-                        w-full flex justify-center items-start md:items-center pt-10 md:pt-0">
-            <div id="ctr_HD3"
-                 style ="margin-top: -45px;"
-                 class ="pacity-0 transform -translate-y-full scale-150 z-50 ctr_HD3
-                         relative w-screen h-screen
-                         bg-white bg-opacity-0 bg-contain bg-no-repeat bg-top
-                         rounded shadow-lg transition-opacity transition-transform duration-300">
-                        <button
-                            onclick="openModal('#ctr_HD3_overlay','#ctr_HD3',false)"
-                            class="absolute top-12 right-9 bg-red-500 hover:bg-red-600
-                            text-2xl w-10 h-10 rounded-full focus:outline-none text-white">
-                            &cross;
-                        </button>
-                    </div>
+            <div class="inputMsg">
+              <textarea rows="3" cols="30" v-model="tempMsg" @keyup.enter="addMsg()" :disabled="username==''"></textarea>
             </div>
-
-            <!-- overlay -->
-            <div id="ctr_HD1_SUB_overlay"
-                 class="hidden absolute inset-0 bg-black bg-opacity-50 h-screen
-                        w-full flex justify-center items-start md:items-center pt-10 md:pt-0">
-            <div id="ctr_HD1_SUB"
-                 style ="margin-top: -45px;"
-                 class ="pacity-0 transform -translate-y-full scale-150 z-50 ctr_HD1_sub
-                         relative w-screen h-screen
-                         bg-white bg-opacity-0 bg-contain bg-no-repeat bg-top
-                         rounded shadow-lg transition-opacity transition-transform duration-300">
-                        <button
-                            onclick="openModal('#ctr_HD1_SUB_overlay','#ctr_HD1_SUB',false)"
-                            class="absolute top-12 right-9 bg-red-500 hover:bg-red-600
-                            text-2xl w-10 h-10 rounded-full focus:outline-none text-white">
-                            &cross;
-                        </button>
-                    </div>
-            </div> 
-    <script>
- 
-
-function useFullScreen(){
-            openModal('#firstinfo_overlay','#first_info',false);
-            document.documentElement.requestFullscreen();   }
- 
-        const first_info         = document.querySelector('#first_info');
-
-function openModal (m_overlay,c,value){ 
-const modal_overlay = document.querySelector(m_overlay);
-        const modal         = document.querySelector(c);
-        const modalCl = modal.classList
-        const overlayCl = modal_overlay
-
-        if(value){
-        overlayCl.classList.remove('hidden')
-        setTimeout(() => {
-            modalCl.remove('opacity-0')
-            modalCl.remove('-translate-y-full')
-            modalCl.remove('scale-150')
-        }, 100);
-        } else {
-        modalCl.add('-translate-y-full')
-        setTimeout(() => {
-            modalCl.add('opacity-0')
-            modalCl.add('scale-150')
-        }, 100);
-        setTimeout(() => overlayCl.classList.add('hidden'), 300);
-        }
-    } 
-    openModal('#firstinfo_overlay','#first_info',true)
- 
-
-        function randomQuote(index){ document.getElementById("display_pin_memo").innerHTML = 'Here'+10+index; }
-
-        function ctrlMainFunc(func_Nanme) {
-          var i;
-          var x = document.getElementsByClassName("mainFunc");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
+          </div>
+        
+        </div>
+      </template>
+      
+      <script>
+      var chatroomRef = firebase.database().ref('/chatroom/');
+      export default {
+        name: 'App',
+        data () {
+          return {
+            username: '',
+            status: 'available',
+            showEdit: false,
+            tempMsg: '',
+            msgCount: 0,
+            startChat: false,
+            livechat: []
           }
-          document.getElementById(func_Nanme).style.display = "block";
-        }
-
-
-        function CTRHD1()
-        {
-            alert('查詢最近路線');
-            Px_Dataa = [  { Path_Name: '西子灣漫遊',Goe_N: [22.78868, 120.29159] },
-                          { Path_Name: '寶藏巖散步',Goe_N: [22.78868, 120.29159] },
-                          { Path_Name: '岡山行旅'  ,Goe_N: [22.78868, 120.29159] } ]
-            for (var i = 0; i < Px_Dataa.length; i++)
-            {
-                createPxItem(i,Px_Dataa[i].Path_Name,Px_Dataa[i].Goe_N,Px_Dataa[i].Goe_W );
+        },
+        methods: {
+          clearName() {
+            const vm = this;
+            vm.username = '';
+            vm.startChat = false;
+            localStorage.clear();
+            const name = document.querySelector('input');
+            name.removeAttribute('disabled', 'disabled');
+            name.focus();
+          },
+          enterName(){
+            const vm = this;
+            if (vm.username !== ''){
+              const msg = document.querySelector('textarea');
+              msg.focus();
             }
-        }
-
-        function createPxItem(index,name,duration,duration_W)
-        {
-                var vv =  "pxList-"+(Px_Dataa.length-1).toString();
-                console.log( vv  );
-                if( document.getElementById(vv) == null )
-                {
-                    var trackItem = document.createElement('div');
-                    trackItem.setAttribute("class", "bg-pxListitem Px_card");
-                    trackItem.setAttribute("onclick","ctrlMainFunc_mdf('FuncHD1_sub',"+index+")");
-                    trackItem.setAttribute("id", "pxList-"+index);
-                    trackItem.setAttribute("data-index-Px", index);
-                    document.querySelector("#pxList_id001").appendChild(trackItem);
-
-                    var trackInfoItem = document.createElement('div');
-                    trackInfoItem.setAttribute("class", "Px_title limt");
-                    trackInfoItem.innerHTML = name
-                    document.querySelector("#pxList-"+index).appendChild(trackInfoItem);
-                }
-        }
-
-
-
-        function ctrlMainFunc_mdf(func_Nanme,indexx) {
-          var i;
-
-          var x = document.getElementsByClassName("mainFunc");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.displayd = "none";
+          },
+          addMsg() {
+            const vm = this;
+            vm.startChat = true;
+            if (vm.username!=='' && vm.tempMsg.trim()!==''){
+              const timestamp = Math.floor(Date.now() / 1000);
+              let newMsg = {
+                username: vm.username, 
+                content: vm.tempMsg,
+                timestamp: timestamp
+              };
+              chatroomRef.child(timestamp).set(newMsg);
+            }
+            vm.tempMsg = ''
+          },
+          editStatus(action) {
+            const vm = this;
+            vm.showEdit = true;
+            let statusBox = document.querySelector('.userStatus');
+            let edit = statusBox.querySelector('input');
+            if (action=='input'){
+              edit.value = vm.status;
+            } else if (action=='ok') {
+              vm.showEdit = false;
+              vm.status = edit.value;
+            } else if (action=='cancel') {
+              vm.showEdit = false;
+              return
+            }
           }
-          document.getElementById(func_Nanme).style.display ="block";
- 
-                now_Px_Name = Px_Dataa[indexx].Path_Name;
-                now_Px_goe_n = Px_Dataa[indexx].Goe_N;
-                now_Px_goe_w = Px_Dataa[indexx].Goe_W; 
-            var ar = document.querySelector('#pxList-1');
-                ar.dataset.indexPx // "12314"
-
-                document.getElementById("display_pin_memo").innerHTML = Px_Dataa[indexx].memo;
-        }
-
-        function ctrlMainFunc_mdf2(func_Nanme,index_pk) {
-          var i;
-          var x = document.getElementsByClassName("mainFunc");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
+        },
+        watch: {
+          startChat() {
+            if (this.startChat){
+              localStorage.setItem('chatName',this.username);
+            }
+          },
+          msgCount() {
+            //scroll to bottom if msg added
+            let chatbox = document.querySelector('.chatbox');
+            chatbox.scrollTo(0,chatbox.scrollHeight);
           }
-          document.getElementById(func_Nanme).style.display = "block";
-          console.log(index_pk);
-        }
- 
-        function ctrlHD1_mdfFunc(){
-               Px_OFF('FuncFT3');
-               ctrlHD1_Func('FuncHD1');
-        }
-
-        function ctrlHD1_Func(func_Nanme) {
-            Px_ON('pxCNT_id001');
-            for (var i = 0; i < Px_Dataa.length; i++)
-            { createPxItem(i,Px_Dataa[i].Path_Name,Px_Dataa[i].Goe_N,Px_Dataa[i].Goe_W ); }
-        }
-
-        function Px_OFF(func_Nanme) {
-            document.getElementById(func_Nanme).style.display = "none";
-        }
-
-        function Px_ON(func_Nanme) {
-            document.getElementById(func_Nanme).style.display = "block";
-        } 
-
-        function Px_Note(func_Nanme) {
-            ctrlMainFunc('Close');
-            ctrlMainFunc('FuncHD1_sub');
-        }
-
-        function build_favCNT() {
-            var track = document.createElement('div');
-            trackItem.setAttribute("class", "fav-ctn");
-            trackItem.setAttribute("id", "favCNT");
-            document.querySelector("#bd_id001").appendChild(track);
-
-            var trackItem = document.createElement('div');
-            trackItem.setAttribute("class", "playlist-ctn");
-            trackItem.setAttribute("id", "favList_id001");
-            document.querySelector("#favCNT").appendChild(trackItem);
-        }
-
-        function bx() {
-            var track = document.createElement('div');
-            trackItem.setAttribute("class", "fav-ctn");
-            trackItem.setAttribute("id", "favCNT");
-            document.querySelector("#bd_id001").append(track);
-        }
-
-
-
-
-
-
-        function ctrlHD2_Func(func_Nanme) {
-
-        try{ rr_nbr();rr_fav() }
-        catch{}
-             Px_OFF('pxCNT_id001');
-             ctrlMainFunc('Close');
-             Px_OFF('FuncFT1');
-        }
-
-        function ctrlHD3_Func(func_Nanme) {
-             Px_OFF('pxCNT_id001');
-             ctrlMainFunc('FuncHD3');
-
-             for (var i = 0; i < Fav_Dataa.length; i++)
-             {   createFavItem(i,Fav_Dataa[i].whichmb_pk);  }
-        }
-
-
-        function ctrlFT3_Func(func_Nanme) {
-             Px_OFF('pxCNT_id001');
-             Px_ON('FuncFT3');
-             for (var i = 0; i < Nbr_Data.length; i++) 
-             {   createNbrItem(i,Nbr_Data[i].pk,Nbr_Data[i].fileType,Nbr_Data[i].Name_ID,Nbr_Data[i].Audio_file,Nbr_Data[i].Trip_Path,Nbr_Data[i].memo);  }
- 
- 
-
-        }
-
-
-
-
-        function FlyTHERE_mdf()
-        {
-            FLY3here(now_Px_goe_n,now_Px_goe_w,17);
-            ctrlHD2_Func('FuncHD3');
-        }
-
-        function FLY2THERE()
-        {
-        pauseAudio(); 
-        FLY2here(now_goe_n,now_goe_w);
-        ctrlMainFunc('Close');
-
-        }
-
-
-
-        function xxx() { getLocation(); }
-
-        function FLY3here(Lat,Lng,zooom) {
-             map.flyTo([Lat, Lng], zooom,
-             {
-                 animate: true,
-                 duration: 2 // in seconds
-             });
-        }
-
-
-        function FLY2here(Lat,Lng) {
-             map.flyTo([Lat, Lng], 18,
-             {
-                 animate: true,
-                 duration: 2 // in seconds
-             });
-        }
-
-        function getLocation() {
-          if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(showPosition);
-          } else {
-            alert("Geolocation is not supported by this browser.");
+        },
+        mounted() {
+          const vm = this;
+          //get localStorage
+          if (localStorage.chatName!==undefined){
+            vm.username = localStorage.getItem('chatName');
           }
+          //get firebase data
+          chatroomRef.orderByChild('timestamp').on('value', function(snapshot) {
+            var val = snapshot.val();
+            vm.livechat = val;
+          });
+          //get initial data length
+          chatroomRef.once('value', function(snapshot) {
+            vm.msgCount = Object.keys(snapshot.val()).length;
+          });
+        },
+        updated() {
+          let tempCount = document.querySelectorAll('.msg');
+          this.msgCount = tempCount.length;
         }
+      }
+      </script>
+      
+     
+      
+  </body>
 
-        function showPosition(position) { 
-
-          FLY2here(position.coords.latitude,position.coords.longitude);
-          L.marker([position.coords.latitude,position.coords.longitude], {icon: Current_Location}).addTo(map);
-        }
-
-
-
-        function rr_nbr() {
-            for (var i = 0; i < Nbr_Data.length; i++)
-             {
-                var xd ='nbrList-' +i;
-                removeElement(xd);
-             } 
-        }
-
-        function rr_fav() {
-            for (var i = 0; i < Nbr_Data.length; i++)
-             {
-                var xd ='favList-' +i;
-                removeElement(xd);
-             } 
-        }
-
-        function removeElement(id) {
-            var elem = document.getElementById(id);
-            return elem.parentNode.removeChild(elem);
-        }
-    </script>
-
-
-    <script>
-            var now_goe_w = '';
-            var now_goe_n = '';
-
-            var now_Px_Name = '' ;
-            var now_Px_goe_w = '';
-            var now_Px_goe_n = '';
-            var now_Tpath = '';
-
-
-            // 設定地圖顯示內容 
-                L.mapbox.accessToken = 'pk.eyJ1Ijoiczk5MjEzMTYiLCJhIjoiY2tqbzJmd2x0MGl3bzJycHJ4YWZkNmNybiJ9.mhK4o-eCYqLs0gFsDjC-tQ';
-
-                var mapboxTiles = L.tileLayer('https://api.mapbox.com/styles/v1/s9921316/ckljcjp7l0sa217mnnn93u0qh/tiles/{z}/{x}/{y}?access_token=' + L.mapbox.accessToken, {
-                       attribution: '© <a href="https://www.mapbox.com/feedback/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-                       tileSize: 512,
-                       zoomOffset: -1 });
-
-                var map = L.map('map')
-                  .addLayer(mapboxTiles)
-                  .setView([25.010383, 121.533350], 20);
-
-               //-----  模擬資料  << 未來需要變動到，高雄地區的其他部分。
-                  const data = [ { name: 'KS_樂活_m_4',local: [22.78836, 120.29181],Vlog:'https://www.youtube.com/embed/gdv-9YjfMUk' }, ];
-
-              // 創建 icon (黑色)
-              const audioIcon = new L.Icon({
-                iconUrl:
-                "{% static 'img/ui_Export/runPage_Pin_v1.png' %}",
-
-                shadowUrl:
-                  "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
-                iconSize: [50, 42],
-                iconAnchor: [24, 82],
-                popupAnchor: [1, -34],
-                shadowSize: [41, 41]
-              });
-
-
-              const voice_Icon = new L.Icon({
-                iconUrl:
-                "{% static 'img/ui_Export/runPage_PinAudio_v2.png' %}",
-                    iconSize: [50, 42],
-                    iconAnchor: [24, 82],
-                    popupAnchor: [1, -34]
-                 });
-
-              const Current_Location = new L.Icon({
-                iconUrl:
-                "{% static 'img/ui_Export/runPage_Whereami_v1.png' %}",
-
-                shadowUrl:
-                  "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
-                    iconSize: [20, 38],
-                    iconAnchor: [24, 82],
-                    popupAnchor: [1, -34],
-                    shadowSize: [31, 35]
-                  });
-
-              sMap_file_List.forEach(item => {
-                // 設定 icon 顯示金色，其餘則為黑色
-
-                console.log("Here is :"+item.fileType);
-                let myIcon;
-                if (item.fileType == "voiceFile") {
-                    myIcon = voice_Icon;
-                }
-                else
-                {
-                    myIcon = audioIcon;
-                }
-
-                // 添加標記點
-                L.marker([item.Goe_N,item.Goe_W], {
-                          title: item.name,
-                          icon: myIcon,
-                          alt: item.pk })
-                .addTo(map)
-                .on('click', function(e) {
-                console.log(e.latlng);
-                var Lat =e.latlng.lat ;
-                var Lng =e.latlng.lng ;
-
-    var findLike = sMap_file_List.find(function(item, index, array){ return item.Goe_N === Lat && item.Goe_W === Lng ; });
-                   console.log('H = '+findLike.Name_ID);
-                   console.log('H = '+findLike.Audio_file);
-                   console.log('H = '+findLike.Trip_Path);
-                   console.log('Goe_N = '+findLike.Goe_N);
-                   console.log('Goe_W = '+findLike.Goe_W);
-                   now_goe_n = findLike.Goe_N;
-                   now_goe_w = findLike.Goe_W;
-
-    var AudioFile ='media/'+findLike.Audio_file;
-                   console.log('HH = '+AudioFile);
-
-                   testVid=document.getElementById("testPlayer");
-                   testVid.src=AudioFile;
-
-                   teid=document.getElementById("display_pin_memo_inPr");
-                   teid.innerHTML=findLike.Name_ID + " : " + findLike.memo;
-
-                   temp_T=document.getElementById("push_btn");
-                   temp_T.src='{% static "img/ui_Export/push_null.png" %}';
-
-                   ctrlMainFunc_mdf2("FuncPlayer",AudioFile) });
-              });
-
-
-              var  xg = document.getElementById("testPlayer");
-                    function playAudio() {
-                          xg.play();
-                          temp_T=document.getElementById("push_btn");
-                          temp_T.src='{% static "img/ui_Export/push_p.png" %}';
-                    }
-
-                    function pauseAudio() {
-                          xg.pause();
-                          xg.currentTime = 0;
-                          temp_T=document.getElementById("push_btn");
-                          temp_T.src='{% static "img/ui_Export/push_s.png" %}';
-                    }
-
-                    function ctrlMainFunc_mddf() {
-                          xg.pause();
-                          xg.currentTime = 0;
-                          ctrlMainFunc('Close');
-                          temp_T=document.getElementById("push_btn");
-                          temp_T.src='{% static "img/ui_Export/push_null.png" %}';
-                    }
-            </script>
-
-    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-            crossorigin="" />
-    <script crossorigin="anonymous" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
-    <script crossorigin="anonymous" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script crossorigin="anonymous" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-</body>
+  
 </html>
-

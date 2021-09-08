@@ -193,51 +193,54 @@ https://maps.app.goo.gl/eZSyFe2B4jxyrQPz9 </textarea>
 
 再留言 讓我們知道一下唷！ 謝謝您😍</textarea>  
                       </div>  
-        </div>
-        <div id="app21" class="items-center p-4 bg-white 
-                               grid grid-cols-4 gap-4
-                               border-2 rounded-lg shadow-sm dark:bg-gray-800
-                               border-gray-200" >
-                               <div>
-                                <input v-model="message0" type="text" placeholder="本方案我們將提供到 9/ 10 左右，屆時因應季節產量再逐步調整，" class="text-center border-2 mx-3 my-2 rounded-xl h-96 "/>
+        </div> 
 
-                               </div> 
-                                
-                               <div> 
-                                  日1:<input v-model="message1" type="date" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
-                                  日2:<input v-model="message2" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
-                                  日3:<input v-model="message3" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
-                                  日4:<input v-model="message4" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
-                                  日5:<input v-model="message5" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
-                                  日6:<input v-model="message6" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
-                                  日7:<input v-model="message7" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
-                                  日8:<input v-model="message8" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
-                                  日9:<input v-model="message9" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
-                               </div> 
+            <!-- 這個是一些日期訂購的部分 START -->
+            <div id="app21" class="items-center p-4 bg-white 
+                                  grid grid-cols-4 gap-4
+                                  border-2 rounded-lg shadow-sm dark:bg-gray-800
+                                  border-gray-200" >
+                                  <div>
+                                    <input v-model="message0" type="text" placeholder="本方案我們將提供到 9/ 10 左右，屆時因應季節產量再逐步調整，" class="text-center border-2 mx-3 my-2 rounded-xl h-96 "/>
 
-                               <div class="col-span-2">
-                                <button class="bg-pink-500 hover:bg-pink-400 text-white  align-center
-                                font-bold py-2 px-4 border-b-4 border-pink-700 
-                                hover:border-pink-500 rounded grid-rows-1 " 
-                                        onclick="copyEvent('copy4')"
-                                > copy 預計回傳訊息內容 </button>
+                                  </div> 
+                                    
+                                  <div> 
+                                      日1:<input v-model="message1" type="date" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
+                                      日2:<input v-model="message2" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
+                                      日3:<input v-model="message3" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
+                                      日4:<input v-model="message4" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
+                                      日5:<input v-model="message5" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
+                                      日6:<input v-model="message6" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
+                                      日7:<input v-model="message7" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
+                                      日8:<input v-model="message8" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
+                                      日9:<input v-model="message9" type="number" placeholder="edit me2" class="text-center border-2 mx-3 my-2 rounded-full"/><br>
+                                  </div> 
 
-                                <p id="copy4" class= "border-2 rounded-xl"> 
-                                  
-🌟 請問還會需要續訂嗎？🌟 <br> 
-您好，這次的月卡的部分，<br> 
-分別在:{{ message1 }} {{ message2 }} {{ message3 }} {{ message4 }} {{ message5 }} {{ message6 }} {{ message7 }} {{ message8 }} {{ message9 }}<br> 
-完成配送了！
-                                   <br> 
+                                  <div class="col-span-2">
+                                    <button class="bg-pink-500 hover:bg-pink-400 text-white  align-center
+                                    font-bold py-2 px-4 border-b-4 border-pink-700 
+                                    hover:border-pink-500 rounded grid-rows-1 " 
+                                            onclick="copyEvent('copy4')"
+                                    > copy 預計回傳訊息內容 </button>
 
-                                   {{ message0 }}
+                                    <p id="copy4" class= "border-2 rounded-xl"> 
+                                      
+    🌟 請問還會需要續訂嗎？🌟 <br> 
+    您好，這次的月卡的部分，<br> 
+    分別在:{{ message1 }} {{ message2 }} {{ message3 }} {{ message4 }} {{ message5 }} {{ message6 }} {{ message7 }} {{ message8 }} {{ message9 }}<br> 
+    完成配送了！
+                                      <br> 
 
-                                   <br> 
-                                </p>
-                               </div>
+                                      {{ message0 }}
 
-                              </div>  
-            
+                                      <br> 
+                                    </p>
+                                  </div>
+
+            </div>  
+            <!-- 這個是一些日期訂購的部分 END -->  
+              
           </div>
       </section>  
       
